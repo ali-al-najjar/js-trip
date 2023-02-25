@@ -1,0 +1,38 @@
+.container{
+  padding:5%;
+}
+
+.form_title{
+  font-size: 3em;
+  margin-bottom: 2%;
+  font-weight:bold;
+}
+
+
+.registration_form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: fit-content;
+
+}
+
+
+.full_name{
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+}
+
+.first_name, .last_name {
+  display: flex;
+  flex-direction: column;
+}
+form.registration_form label {
+  font-size: 25px;
+  padding: 10px 0px;
+}
+
+input {
+  padding: 4%;
+}
