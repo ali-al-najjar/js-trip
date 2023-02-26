@@ -1,14 +1,15 @@
 window.onload=function(){
-let form = document.getElementById("registration_form");
-let first_name = document.getElementById("first_name");
-let last_name = document.getElementById("last_name");
-let email = document.getElementById("email");
-let password = document.getElementById("password");
-let profession = document.getElementById("profession");
-let form_title = document.getElementById("form_title");
+const form = document.getElementById("registration_form");
+const first_name = document.getElementById("first_name");
+const last_name = document.getElementById("last_name");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const profession = document.getElementById("profession");
+const form_title = document.getElementById("form_title");
 let profile={};
-let count = 10;
-let merge_sort=document.getElementById("merge_sort");
+const count = 10;
+const merge_sort=document.getElementById("merge_sort");
+
 
 function requireFields(e){
   e.preventDefault();
@@ -95,7 +96,19 @@ function reverseText(text) {
   }
   return reversed;
 }
-
+function consonantText(text) {
+  let consonant_text="";
+  let vowels_text="";
+  for (let i = 0; i <= text.length-1; i++) {
+    if (text[i] =="a" ||  text[i] =="e" || text[i] =="i" || text[i] =="o" || text[i] =="u"){
+      vowels_text += text[i]
+    }else{
+      consonant_text += text[i];
+    }
+    
+  }
+  return vowels_text + consonant_text + 'ay';
+}
 
 
 form.addEventListener("submit", requireFields);
@@ -114,8 +127,15 @@ form.addEventListener("submit", function(){
   reverse_box.style.display="flex";
   reverse.style.display="initial";
   reverse.style.padding="5px";
-  reverse_btn.style.display="initial";
+  reverse_btn.style.display="initial"; 
+  consonant.style.display="initial";
+  consonant.style.padding="5px";
+  consonant_btn.style.display="initial"; 
+
+
 })
+
+
 email.addEventListener("change", validateEmail);
 password.addEventListener("change",validatePassword);
 
@@ -123,9 +143,9 @@ password.addEventListener("change",validatePassword);
 //   prompt(`Enter ${i+1} number to sort them`);
 // }
 
-let palindrome_box = document.getElementById("palindrome_box");
-let palindrome = document.getElementById("palindrome");
-let palindrome_btn = document.getElementById("check_palindrome");
+const palindrome_box = document.getElementById("palindrome_box");
+const palindrome = document.getElementById("palindrome");
+const palindrome_btn = document.getElementById("check_palindrome");
 palindrome_btn.addEventListener("click",function(){
   if(checkPalindrome(palindrome.value)){
     palindrome_box.innerText="It is a Palindrome";
@@ -133,9 +153,9 @@ palindrome_btn.addEventListener("click",function(){
     palindrome_box.innerText="It is not a Palindrome";
   };})
 
-let year_box = document.getElementById("year_box");
-let year = document.getElementById("year");
-let year_btn = document.getElementById("check_year");
+const year_box = document.getElementById("year_box");
+const year = document.getElementById("year");
+const year_btn = document.getElementById("check_year");
 year_btn.addEventListener("click",function(){
   if(agePrimeCheck(year.value)){
     year_box.innerText="It is Prime!";
@@ -143,17 +163,21 @@ year_btn.addEventListener("click",function(){
     year_box.innerText="It is not Prime!";
   };})
 
-
-
-let reverse_box = document.getElementById("reverse_box");
-let reverse = document.getElementById("reverse");
-let reverse_btn = document.getElementById("reverse_btn");
+const reverse_box = document.getElementById("reverse_box");
+const reverse = document.getElementById("reverse");
+const reverse_btn = document.getElementById("reverse_btn");
 
 reverse_btn.addEventListener("click",function(){
-  reverse_box.innerHTML= (reverseText(reverse.value));
+  reverse_box.innerText= (reverseText(reverse.value));
 })
+
+
+const consonant_box = document.getElementById("consonant_box");
+const consonant = document.getElementById("consonant");
+const consonant_btn = document.getElementById("consonant_btn");
+consonant_btn.addEventListener("click",function(){
+  consonant_box.innerText= (consonantText(consonant.value));
+})
+
 }
-
-
-
 
