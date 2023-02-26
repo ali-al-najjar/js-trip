@@ -5,8 +5,10 @@ let last_name = document.getElementById("last_name");
 let email = document.getElementById("email");
 let password = document.getElementById("password");
 let profession = document.getElementById("profession");
-let submit = document.getElementById("submit");
 let form_title = document.getElementById("form_title");
+let profile={};
+let count = 10;
+let merge_sort=document.getElementById("merge_sort");
 
 function requireFields(e){
   e.preventDefault();
@@ -26,7 +28,7 @@ function requireFields(e){
       alert("Profession is required!");
       return false;
     }else
-      return true;
+     return true,form.style.display="none";
  }
 
 function addJSON(){
@@ -37,6 +39,7 @@ function addJSON(){
     "password":password.value,
     "profession":profession.value
 }
+return profile_data;
 }
 
 function validateEmail() {
@@ -60,22 +63,46 @@ function validatePassword()
     password.style.borderColor="green";}
 }
 
-function checkPalindrome(palindrome){
-  if(palindrome.length === 1) return true;
-  if(plaindrome.length === 2) return str[0] === str[1];
-  if(palindrome[0] === palindrome.slice(-1)) return checkPalindrome(palindrome.slice(1,-1))
+function checkPalindrome(value){
+  if(value.length === 1) return true;
+  if(value.length === 2) return value[0] === value[1];
+  if(value[0] === value.slice(-1)) return checkPalindrome(value.slice(1,-1))
   return false;
 }
 
 function mergeSort(numbers){
 
 }
+
 form.addEventListener("submit", requireFields);
-form.addEventListener("submit", addJSON);
+form.addEventListener("submit", function(){
+  addJSON();
+  profile = addJSON();
+  form_title.innerText=`Welcome ${profile.first_name}`;
+  palindrome_box.style.display="flex";
+  palindrome.style.display="initial";
+  palindrome.style.padding="5px";
+  palindrome_btn.style.display="initial";
+})
 email.addEventListener("change", validateEmail);
 password.addEventListener("change",validatePassword);
 
+// for(let i = 0; i<count;i++){
+//   prompt(`Enter ${i+1} number to sort them`);
+// }
+
+let palindrome_box = document.getElementById("palindrome_box");
+let palindrome = document.getElementById("palindrome");
+let palindrome_btn = document.getElementById("check_palindrome")
+palindrome_btn.addEventListener("click",function(){
+  if(checkPalindrome(palindrome.value)){
+    palindrome_box.innerText="It is a palindrome";
+  }else{
+    palindrome_box.innerText="It is not a palindrome";
+  };})
 
 }
+
+
 
 

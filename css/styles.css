@@ -51,3 +51,8 @@ input {
     transform: rotate(-2deg);
   }
 }
+
+#palindrome_box, #check_palindrome,#palindrome{
+  display:none;
+  
+}
