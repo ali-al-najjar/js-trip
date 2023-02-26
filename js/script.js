@@ -8,52 +8,72 @@ let profession = document.getElementById("profession");
 let submit = document.getElementById("submit");
 let form_title = document.getElementById("form_title");
 
-form.addEventListener("submit", function(e){
+function requireFields(e){
   e.preventDefault();
-    let profile_data = {
-        "first_name":first_name.value,
-        "last_name":last_name.value,
-        "email":email.value,
-        "password":password.value,
-        "profession":profession.value
-    }
-    console.log(profile_data);
     if(first_name.value == ""){
-      alert("First name is required!");
+        alert("First name is required!");
+        return false;
+    }else if(last_name.value == ""){
+        alert("Last name is required!");
+        return false;
+    }else if(email.value == ""){
+        alert("Email is required!");
+        return false;
+    }else if(password.value == ""){
+        alert("Password is required!");
+        return false;
+    }else if(profession.value == ""){
+      alert("Profession is required!");
       return false;
-   }else if(last_name.value == ""){
-     alert("Last name is required!");
-     return false;
-  }else if(email.value == ""){
-   alert("Email is required!");
-   return false;
- }else if(password.value == ""){
-   alert("Password is required!");
-   return false;
- }else if(profession.value == ""){
-   alert("Profession is required!");
-   return false;
- }else
-   return true;
- })
+    }else
+      return true;
+ }
 
-function validateEmail(input) {
-  var validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if (input.match(validEmail)) {
-    alert("Valid email address!");
+function addJSON(){
+  let profile_data = {
+    "first_name":first_name.value,
+    "last_name":last_name.value,
+    "email":email.value,
+    "password":password.value,
+    "profession":profession.value
+}
+}
+
+function validateEmail() {
+  let validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (email.value.match(validEmail)) {
+    email.style.borderColor="green";
     return true;
   } else {
-    alert("Invalid email address!");
+    email.style.borderColor="red";
+    email.style.animation= "nudge .4s";
     return false;
   }
 }
+function validatePassword()
+{
+    const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    if(!regex.test(password.value)){
+      password.style.borderColor="red";
+      password.style.animation= "nudge .4s";
+    }else{
+    password.style.borderColor="green";}
+}
 
-function checkPalindrome(str){
-  if(str.length === 1) return true;
-  if(str.length === 2) return str[0] === str[1];
-  if(str[0] === str.slice(-1)) return checkPalindrome(str.slice(1,-1))
+function checkPalindrome(palindrome){
+  if(palindrome.length === 1) return true;
+  if(plaindrome.length === 2) return str[0] === str[1];
+  if(palindrome[0] === palindrome.slice(-1)) return checkPalindrome(palindrome.slice(1,-1))
   return false;
 }
+
+function mergeSort(numbers){
+
+}
+form.addEventListener("submit", requireFields);
+form.addEventListener("submit", addJSON);
+email.addEventListener("change", validateEmail);
+password.addEventListener("change",validatePassword);
 
 
 }
