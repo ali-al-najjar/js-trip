@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/reset.css">
-  <script src="./js/script.js\"></script>
+  
   <title>A small trip</title>
 </head>
 <body>
   <div class="container">
-    <div class="form_title">Welcome to our JS trip! Kindly register to proceed.</div>
+    <div id="form_title">Welcome to our JS trip! Kindly register to proceed.</div>
   <form class="registration_form">
     <div class="full_name">
       <div class="first_name">
       <label for="first_name">First Name</label>
-      <input type="text" id="fname" name="first_name"></div>
+      <input type="text" id="first_name" name="first_name"></div>
       <div class="last_name">
       <label for="last_name">Last Name</label>
       <input type="text" id="last_name" name="last_name"></div>
@@ -27,7 +27,23 @@
     <input type="password" id="password" name="password">
     <label for="date_of_birth">Date of birth</label>
     <input type="number" id="date_of_birth" name="date_of_birth">
+    <button type="submit" id="submit" name="submit">Register</button>
+    <p id="profile"></p>
+    <script src="./js/script.js"></script>
   </form>
+  <h1>Welcome to your profile</h1>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="./js/script.js"></script>
 </body>
 </html>
