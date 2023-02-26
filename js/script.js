@@ -74,6 +74,20 @@ function mergeSort(numbers){
 
 }
 
+function agePrimeCheck(year_of_birth) {
+  let current =  new Date().getFullYear();
+  let age = current - year_of_birth
+  if (age <= 1) return false;
+  if (age == 2) return true;
+  for (let i = 2; i <= age / 2; i++) {
+    if (age % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
 form.addEventListener("submit", requireFields);
 form.addEventListener("submit", function(){
   addJSON();
@@ -83,6 +97,10 @@ form.addEventListener("submit", function(){
   palindrome.style.display="initial";
   palindrome.style.padding="5px";
   palindrome_btn.style.display="initial";
+  year_box.style.display="flex";
+  year.style.display="initial";
+  year.style.padding="5px";
+  year_btn.style.display="initial";
 })
 email.addEventListener("change", validateEmail);
 password.addEventListener("change",validatePassword);
@@ -93,14 +111,23 @@ password.addEventListener("change",validatePassword);
 
 let palindrome_box = document.getElementById("palindrome_box");
 let palindrome = document.getElementById("palindrome");
-let palindrome_btn = document.getElementById("check_palindrome")
+let palindrome_btn = document.getElementById("check_palindrome");
 palindrome_btn.addEventListener("click",function(){
   if(checkPalindrome(palindrome.value)){
-    palindrome_box.innerText="It is a palindrome";
+    palindrome_box.innerText="It is a Palindrome";
   }else{
-    palindrome_box.innerText="It is not a palindrome";
+    palindrome_box.innerText="It is not a Palindrome";
   };})
 
+let year_box = document.getElementById("year_box");
+let year = document.getElementById("year");
+let year_btn = document.getElementById("check_year");
+year_btn.addEventListener("click",function(){
+  if(agePrimeCheck(year.value)){
+    year_box.innerText="It is Prime!";
+  }else{
+    year_box.innerText="It is not Prime!";
+  };})
 }
 
 

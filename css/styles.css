@@ -52,7 +52,7 @@ input {
   }
 }
 
-#palindrome_box, #check_palindrome,#palindrome{
+#palindrome_box, #check_palindrome,#palindrome,#year_box,#year,#check_year{
   display:none;
   
 }
