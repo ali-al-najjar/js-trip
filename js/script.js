@@ -87,6 +87,16 @@ function agePrimeCheck(year_of_birth) {
   return true;
 }
 
+function reverseText(text) {
+  let reversed="";
+  for (let i = text.length-1; i >= 0; i--) {
+    reversed += text[i];
+    
+  }
+  return reversed;
+}
+
+
 
 form.addEventListener("submit", requireFields);
 form.addEventListener("submit", function(){
@@ -101,6 +111,10 @@ form.addEventListener("submit", function(){
   year.style.display="initial";
   year.style.padding="5px";
   year_btn.style.display="initial";
+  reverse_box.style.display="flex";
+  reverse.style.display="initial";
+  reverse.style.padding="5px";
+  reverse_btn.style.display="initial";
 })
 email.addEventListener("change", validateEmail);
 password.addEventListener("change",validatePassword);
@@ -128,6 +142,16 @@ year_btn.addEventListener("click",function(){
   }else{
     year_box.innerText="It is not Prime!";
   };})
+
+
+
+let reverse_box = document.getElementById("reverse_box");
+let reverse = document.getElementById("reverse");
+let reverse_btn = document.getElementById("reverse_btn");
+
+reverse_btn.addEventListener("click",function(){
+  reverse_box.innerHTML= (reverseText(reverse.value));
+})
 }
 
 

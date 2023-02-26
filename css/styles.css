@@ -52,7 +52,10 @@ input {
   }
 }
 
-#palindrome_box, #check_palindrome,#palindrome,#year_box,#year,#check_year{
+#palindrome_box, #check_palindrome,#palindrome,
+#year_box,#year,#check_year,#reverse_box,#reverse,#reverse_btn
+{
   display:none;
   
 }
+
