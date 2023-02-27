@@ -9,6 +9,7 @@ const form_title = document.getElementById("form_title");
 let profile={};
 const count = 10;
 const merge_sort=document.getElementById("merge_sort");
+let flag = false;
 
 
 function requireFields(e){
@@ -30,7 +31,7 @@ function requireFields(e){
       return false;
     }else
      return true,form.style.display="none";
- }
+}
 
 function addJSON(){
   let profile_data = {
@@ -112,28 +113,28 @@ function consonantText(text) {
 
 
 form.addEventListener("submit", requireFields);
-form.addEventListener("submit", function(){
-  addJSON();
-  profile = addJSON();
-  form_title.innerText=`Welcome ${profile.first_name}`;
-  palindrome_box.style.display="flex";
-  palindrome.style.display="initial";
-  palindrome.style.padding="5px";
-  palindrome_btn.style.display="initial";
-  year_box.style.display="flex";
-  year.style.display="initial";
-  year.style.padding="5px";
-  year_btn.style.display="initial";
-  reverse_box.style.display="flex";
-  reverse.style.display="initial";
-  reverse.style.padding="5px";
-  reverse_btn.style.display="initial"; 
-  consonant.style.display="initial";
-  consonant.style.padding="5px";
-  consonant_btn.style.display="initial"; 
 
-
-})
+  form.addEventListener("submit", function(){
+    addJSON();
+    profile = addJSON();
+    form_title.innerText=`Welcome ${profile.first_name}`;
+    palindrome_box.style.display="flex";
+    palindrome.style.display="initial";
+    palindrome.style.padding="5px";
+    palindrome_btn.style.display="initial";
+    year_box.style.display="flex";
+    year.style.display="initial";
+    year.style.padding="5px";
+    year_btn.style.display="initial";
+    reverse_box.style.display="flex";
+    reverse.style.display="initial";
+    reverse.style.padding="5px";
+    reverse_btn.style.display="initial"; 
+    consonant_box.style.display="flex";
+    consonant.style.display="initial";
+    consonant.style.padding="5px";
+    consonant_btn.style.display="initial"; 
+  })
 
 
 email.addEventListener("change", validateEmail);
@@ -178,6 +179,26 @@ const consonant_btn = document.getElementById("consonant_btn");
 consonant_btn.addEventListener("click",function(){
   consonant_box.innerText= (consonantText(consonant.value));
 })
+
+let course_name = document.getElementById("course_name");
+let course_credits = document.getElementById("course_credits");
+let course_duration = document.getElementById("course_duration");
+let course_students = document.getElementById("course_students");
+const create_class = document.getElementById("create_class");
+
+class Course {
+  constructor(name, credits,duration,numbers_of_students) {
+    this.name = name;
+    this.credits = credits;
+    this.duration = duration;
+    this.number_of_students= numbers_of_students;
+  }
+}
+create_class.addEventListener("click", function(){
+  let course = new Course(course_name.value,course_credits.value,course_duration.value,course_students.value);
+  console.log(course.course_name);
+})
+
 
 }
 
